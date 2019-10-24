@@ -1,0 +1,11 @@
+.idea/*
+__pycache__
+.idea
+.media/*
+.pyc
+media
+staticfiles
+.DS_Store
+.py[cod]
+static
+.env_production

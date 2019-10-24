@@ -1,0 +1,112 @@
+{% load static from static %}
+{% load i18n %}
+
+{% block title %}Login{% endblock %}
+
+{% block section %}
+    <div class="shop-wrapper">
+        <div class="section">
+            <div class="container">
+                <div class="columns account-header is-auth">
+                    <div class="column is-10 is-offset-1 is-tablet-landscape-padded">
+                        <div class="auth-title">
+                            <h2>LOGIN</h2>
+                            <a href="/" class="button feather-button is-small primary-button upper-button raised is-hidden-mobile">
+                                <span>Inicio</span>
+                            </a>
+                        </div>
+                        <div class="flat-card is-auto is-auth-form">
+                            <div class="columns is-gapless is-flex-mobile">
+                                <div class="column is-6 has-text-centered image-column is-padded">
+                                    <div class="store-wrapper">
+                                        <div class="title">
+                                            Nephos
+                                        </div>
+                                        <div class="subtitle">An unforgetable Customer Experience</div>
+                                    </div>
+                                    <div class="nephos-overlay"></div>
+                                </div>
+
+                                <div class="column is-6 is-mobile-padded">
+                                    <div class="tabs-wrapper animated-tabs">
+                                        <div class="tabs is-form-tabs">
+                                            <ul>
+                                                <li class="is-active" data-tab="login"><a>Login</a></li>
+                                                <li data-tab="register"><a>Register</a></li>
+                                            </ul>
+                                        </div>
+                                        <div id="login" class="navtab-content is-active">
+                                            <form method="post" action="">
+                                                {% csrf_token %}
+                                                {% for field in form1 %}
+                                                    <div class="control">
+                                                        <label class="auth-label">{{ field.label }} *</label>
+                                                        {% render_field field class="input" %}
+                                                        {% if field.help_text %}
+                                                            <p class="help-block"><small>{{ field.help_text }}</small></p>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endfor %}
+                                                {% if form1.errors %}
+                                                    <p class=" label label-warning" style="color: red; font-size: 14px">
+                                                        Your username and password didn't match.
+                                                        Please try again.
+                                                    </p>
+                                                {% endif %}
+                                                <div class="control">
+                                                    <label class="checkbox-wrap is-small">
+                                                        <input id="house" type="checkbox" class="d-checkbox" checked>
+                                                        <span></span>
+                                                        <small>Remember me?</small>
+                                                    </label>
+                                                </div>
+                                                <div class="button-wrapper">
+                                                    <button name="submit" value="Login" type="submit" class="button feather-button is-small primary-button upper-button raised">
+                                                        <span>{% trans "Log in" %}</span>
+                                                    </button>
+                                                    <a class="forgotten">Forgot Password ?</a>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div id="register" class="navtab-content">
+                                            <form method="post" action="">
+                                                {% csrf_token %}
+                                                {% for field in form2 %}
+                                                <div class="control">
+                                                    {% if field.label == 'Username' %}
+                                                        <label class="auth-label" >Email *</label>
+                                                    {% else %}
+                                                        <label class="auth-label">{{ field.label }} *</label>
+                                                    {% endif %}
+                                                    {% render_field field class="input" %}
+                                                </div>
+                                                {% endfor %}
+                                                {% if form2.errors %}
+                                                    <p class=" label label-warning" style="color: red; font-size: 14px">
+                                                        Ingrese bien los datos
+                                                    </p>
+                                                {% endif %}
+                                                <div class="button-wrapper">
+                                                    <button name="submit" value="Register" type="submit" class="button feather-button is-small primary-button upper-button raised">
+                                                        <span>Register</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        console.log('login')
+    </script>
+{% endblock %}
