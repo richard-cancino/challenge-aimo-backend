@@ -1,7 +1,7 @@
 Django==2.2.6
 peewee==2.10.1
 PyJWT==1.5.2
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 
 #Fork in DRF Docs
 git+git://github.com/Moons15/django-rest-framework-docs.git#egg=django-rest-framerwork-docs
