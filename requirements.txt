@@ -1,4 +1,4 @@
-Django==2.2.6
+Django==2.2.22
 peewee==2.10.1
 PyJWT==1.5.2
 djangorestframework==3.10.3
