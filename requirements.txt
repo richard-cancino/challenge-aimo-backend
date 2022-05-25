@@ -1,6 +1,6 @@
 Django==2.2.6
 peewee==2.10.1
-PyJWT==1.5.2
+PyJWT==2.4.0
 djangorestframework==3.10.3
 
 #Fork in DRF Docs
